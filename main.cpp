@@ -114,6 +114,7 @@ int main(int argc, char const *argv[])
 {
   testBestFreeList();
   testWorstFreeList();
+  testFirstFreeList();
 
   return 0;
 }
