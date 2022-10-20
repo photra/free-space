@@ -1,6 +1,7 @@
 #pragma once
 #include <queue>
 #include <map>
+#include <string>
 
 using namespace std;
 
@@ -74,6 +75,22 @@ class BestFreeList : public FreeList
 
 public:
   BestFreeList(int input_memory_size, int input_header_size);
+
+  AllocationResult *RequestAllocation(int size_in_bytes);
+
+  bool FreeAllocation(int memory_address);
+
+  int get_length();
+
+  string to_string();
+};
+
+class WorstFreeList : public FreeList
+{
+  priority_queue<FreeSpace, vector<FreeSpace>, less<FreeSpace>> free_addresses;
+
+public:
+  WorstFreeList(int input_memory_size, int input_header_size);
 
   AllocationResult *RequestAllocation(int size_in_bytes);
 
