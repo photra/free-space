@@ -100,3 +100,19 @@ public:
 
   string to_string();
 };
+
+class FirstFreeList : public FreeList
+{
+  vector<FreeSpace> free_addresses_vec;
+
+public:
+  FirstFreeList(int input_memory_size, int input_header_size);
+
+  AllocationResult *RequestAllocation(int size_in_bytes);
+
+  bool FreeAllocation(int memory_address);
+
+  int get_length();
+
+  string to_string();
+};
